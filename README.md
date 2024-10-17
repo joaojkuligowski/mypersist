@@ -28,18 +28,16 @@ First, create a new instance of the `Base` class. You can choose the storage dri
 
 ```php
 use Joaojkuligowski\Mypersist\Base;
-use Joaojkuligowski\Mypersist\PDODriver;
 
-$persistBase = new Base(new PDODriver('sqlite:api.test.db'));
+$persistBase = new Base('PDO', 'sqlite:base.db');
 ```
 
 #### Using JSON
 
 ```php
 use Joaojkuligowski\Mypersist\Base;
-use Joaojkuligowski\Mypersist\JSONDriver;
 
-$persistBase = new Base(new JSONDriver('data.test.json'));
+$persistBase = new Base('JSON', 'file.json');
 ```
 
 ### Basic Operations
@@ -78,6 +76,10 @@ $data = [
 
 $persistBase->upsert('users', $data, 'email'); // 'email' is the unique key
 ```
+
+### Docs
+
+[Complete Documentation](DOCS.md)
 
 ### Table and Column Management
 

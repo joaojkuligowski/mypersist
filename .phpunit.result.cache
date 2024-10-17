@@ -1,1 +1,0 @@
-{"version":1,"defects":{"BaseTest::testInsertAndSelectWithJSON":7,"BaseTest::testUpsertWithJSON":5,"BaseTest::testInsertAndSelectWithPDO":7,"BaseTest::testUpsertWithPDO":8},"times":{"BaseTest::testInsertAndSelectWithPDO":0.041,"BaseTest::testUpsertWithPDO":0.048,"BaseTest::testInsertAndSelectWithJSON":0.003,"BaseTest::testUpsertWithJSON":0.006}}

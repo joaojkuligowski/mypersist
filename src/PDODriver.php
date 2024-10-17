@@ -48,6 +48,74 @@ class PDODriver implements PersistenceInterface
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function selectWithLimit(string $table, array $where = [], int $limit = 0, int $offset = 0): array
+  {
+    $whereClause = '';
+    if (!empty($where)) {
+      $conditions = array_map(fn($col) => "$col = ?", array_keys($where));
+      $whereClause = 'WHERE ' . implode(' AND ', $conditions);
+    }
+
+    $limitOffsetClause = '';
+    if ($limit > 0) {
+      $limitOffsetClause = 'LIMIT ? OFFSET ?';
+    }
+
+    $sql = "SELECT * FROM $table $whereClause $limitOffsetClause";
+    $stmt = $this->db->prepare($sql);
+
+    // Combina os valores das condições com os valores de limite e offset para bind
+    $params = array_merge(array_values($where), [$limit, $offset]);
+    $stmt->execute($params);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+
+  public function join(
+    string $table1,
+    string $table2,
+    string $joinColumnTable1,
+    string $joinColumnTable2
+  ): array {
+    // Seleciona todos os registros das duas tabelas
+    $table1Records = $this->select($table1);
+    $table2Records = $this->select($table2);
+
+    $result = [];
+
+    // Combina os registros das duas tabelas
+    foreach ($table1Records as $record1) {
+      foreach ($table2Records as $record2) {
+        if ($record1[$joinColumnTable1] === $record2[$joinColumnTable2]) {
+          $result[] = array_merge($record1, $record2);
+        }
+      }
+    }
+
+    return $result;
+  }
+
+  public function delete(string $table, array $where = []): void
+  {
+    $where_clause = '';
+    try {
+      $this->db->beginTransaction();
+      if (!empty($where)) {
+        $conditions = array_map(fn($col) => "$col = ?", array_keys($where));
+        $where_clause = 'WHERE ' . implode(' AND ', $conditions);
+      }
+
+      $stmt = $this->db->prepare("DELETE FROM $table $where_clause");
+
+      $stmt->execute(array_values($where));
+
+      $this->db->commit();
+    } catch (\Exception $e) {
+      $this->db->rollBack();
+      throw $e;
+    }
+  }
   public function upsert(string $table, array $data, string $uniqueKey): void
   {
     $this->createTableIfNotExists($table, array_map(fn($value) => 'TEXT', $data));
