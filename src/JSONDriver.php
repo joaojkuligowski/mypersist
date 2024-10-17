@@ -97,10 +97,7 @@ class JSONDriver implements PersistenceInterface
 
   public function delete(string $table, array $conditions = []): void
   {
-    // Carrega os dados atuais da tabela
     $currentData = $this->select($table);
-
-    // Filtra os dados para excluir registros que correspondem às condições
     $filteredData = array_filter($currentData, function ($record) use ($conditions) {
       foreach ($conditions as $key => $value) {
         if (!isset($record[$key]) || $record[$key] !== $value) {
@@ -110,7 +107,6 @@ class JSONDriver implements PersistenceInterface
       return false; // Exclui o registro
     });
 
-    // Reindexa o array e grava os dados atualizados
     $filteredData = array_values($filteredData);
     $this->writeData($table, $filteredData);
   }
