@@ -38,6 +38,7 @@ class Base
    * @param string $table The name of the table to insert data into.
    * @param array $data An associative array representing the data to be inserted
    *                    where the keys are column names and the values are the corresponding values.
+   * @return void
    */
   public function insert(string $table, array $data): void
   {

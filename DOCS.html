@@ -1,14 +1,25 @@
-# Base
-
-[Full Documentation](DOCS.html)
-
-
-
-## Methods
-
-### __construct
-
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="mb-4">Base Documentation</h1>
+    <p><a href="README.md" class="btn btn-primary">View README</a></p>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Class Overview</h5>
+            <p></p>
+        </div>
+    </div>
+    <h2 class="mt-5">Methods</h2>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">__construct</h5>
+            <p class="card-text">/**
    * Construct a new base object for a persistence driver.
    *
    * The type parameter should be either 'JSON' or 'PDO'. If not provided, it
@@ -17,16 +28,14 @@
    *
    * @param string $type The type of persistence driver to use.
    * @param string $location The path to the persistence location.
-   */
-
-Example usage:
-```php
-$instance->__construct($type, $location);
-```
-
-### insert
-
-/**
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->__construct($type, $location);</code></pre>
+        </div>
+    </div>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">insert</h5>
+            <p class="card-text">/**
    * Insert data into the specified table.
    *
    * This method delegates the insert operation to the underlying persistence
@@ -35,17 +44,14 @@ $instance->__construct($type, $location);
    * @param string $table The name of the table to insert data into.
    * @param array $data An associative array representing the data to be inserted
    *                    where the keys are column names and the values are the corresponding values.
-   * @return void
-   */
-
-Example usage:
-```php
-$instance->insert($table, $data);
-```
-
-### select
-
-/**
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->insert($table, $data);</code></pre>
+        </div>
+    </div>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">select</h5>
+            <p class="card-text">/**
    * Select data from the specified table.
    *
    * This method delegates the select operation to the underlying persistence
@@ -58,16 +64,14 @@ $instance->insert($table, $data);
    * @return array An array of associative arrays, where each associative array
    *              represents a record in the table and the keys are column names
    *              and the values are the corresponding values.
-   */
-
-Example usage:
-```php
-$instance->select($table, $where);
-```
-
-### upsert
-
-/**
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->select($table, $where);</code></pre>
+        </div>
+    </div>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">upsert</h5>
+            <p class="card-text">/**
    * Upsert data into the specified table.
    *
    * This method delegates the upsert operation to the underlying persistence
@@ -79,16 +83,14 @@ $instance->select($table, $where);
    *                    corresponding values.
    * @param string $uniqueKey The column name to use as the unique key for the
    *                          upsert operation.
-   */
-
-Example usage:
-```php
-$instance->upsert($table, $data, $uniqueKey);
-```
-
-### selectWithLimit
-
-/**
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->upsert($table, $data, $uniqueKey);</code></pre>
+        </div>
+    </div>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">selectWithLimit</h5>
+            <p class="card-text">/**
    * Select data from the specified table with a limit and offset.
    *
    * This method delegates the select with limit and offset operation to the
@@ -104,16 +106,14 @@ $instance->upsert($table, $data, $uniqueKey);
    * @return array An array of associative arrays, where each associative array
    *              represents a record in the table and the keys are column names
    *              and the values are the corresponding values.
-   */
-
-Example usage:
-```php
-$instance->selectWithLimit($table, $where, $limit, $offset);
-```
-
-### join
-
-/**
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->selectWithLimit($table, $where, $limit, $offset);</code></pre>
+        </div>
+    </div>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">join</h5>
+            <p class="card-text">/**
    * Join two tables based on a common column.
    *
    * This method delegates the join operation to the underlying persistence
@@ -128,16 +128,14 @@ $instance->selectWithLimit($table, $where, $limit, $offset);
    * @return array An array of associative arrays, where each associative array
    *              represents a record in the joined table and the keys are
    *              column names and the values are the corresponding values.
-   */
-
-Example usage:
-```php
-$instance->join($table1, $table2, $joinColumnTable1, $joinColumnTable2);
-```
-
-### delete
-
-/**
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->join($table1, $table2, $joinColumnTable1, $joinColumnTable2);</code></pre>
+        </div>
+    </div>    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">delete</h5>
+            <p class="card-text">/**
    * Delete records from the specified table.
    *
    * This method delegates the delete operation to the underlying persistence
@@ -147,10 +145,11 @@ $instance->join($table1, $table2, $joinColumnTable1, $joinColumnTable2);
    * @param array $where An associative array representing the conditions for
    *                     which records should be deleted. The keys are column
    *                     names and the values are the corresponding values.
-   */
-
-Example usage:
-```php
-$instance->delete($table, $where);
-```
-
+   */</p>
+            <h6>Example usage:</h6>
+            <pre><code>&#36;instance->delete($table, $where);</code></pre>
+        </div>
+    </div></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

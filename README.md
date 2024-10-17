@@ -79,7 +79,7 @@ $persistBase->upsert('users', $data, 'email'); // 'email' is the unique key
 
 ### Docs
 
-[Complete Documentation](DOCS.md)
+[Complete Documentation](docs/DOCS.html)
 
 ### Table and Column Management
 
