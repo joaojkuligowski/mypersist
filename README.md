@@ -77,6 +77,18 @@ $data = [
 $persistBase->upsert('users', $data, 'email'); // 'email' is the unique key
 ```
 
+#### Working with joins
+
+To join data, use the join method:
+```php
+$table1 = 'users' ;
+$table2 = 'invoices' ;
+$joinColumnTable1 = 'code' ;
+$joinColumnTable2 = 'userCode' ;
+
+$persistBase->join($table1, $table2, $joinColumnTable1, $joinColumnTable2);
+```
+
 ### Docs
 
 [Complete Documentation](DOCS.md)
