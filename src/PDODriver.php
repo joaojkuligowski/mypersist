@@ -63,8 +63,6 @@ class PDODriver implements PersistenceInterface
 
     $sql = "SELECT * FROM $table $whereClause $limitOffsetClause";
     $stmt = $this->db->prepare($sql);
-
-    // Combina os valores das condições com os valores de limite e offset para bind
     $params = array_merge(array_values($where), [$limit, $offset]);
     $stmt->execute($params);
 
@@ -78,13 +76,11 @@ class PDODriver implements PersistenceInterface
     string $joinColumnTable1,
     string $joinColumnTable2
   ): array {
-    // Seleciona todos os registros das duas tabelas
     $table1Records = $this->select($table1);
     $table2Records = $this->select($table2);
 
     $result = [];
 
-    // Combina os registros das duas tabelas
     foreach ($table1Records as $record1) {
       foreach ($table2Records as $record2) {
         if ($record1[$joinColumnTable1] === $record2[$joinColumnTable2]) {
