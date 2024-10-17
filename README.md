@@ -52,7 +52,7 @@ $data = [
     'email' => 'john.doe@example.com',
 ];
 
-$base->insert('users', $data);
+$persistBase->insert('users', $data);
 ```
 
 #### Selecting Data
@@ -60,7 +60,7 @@ $base->insert('users', $data);
 To retrieve data from a table, use the `select` method:
 
 ```php
-$users = $base->select('users', ['email' => 'john.doe@example.com']);
+$users = $persistBase->select('users', ['email' => 'john.doe@example.com']);
 print_r($users);
 ```
 
@@ -74,7 +74,7 @@ $data = [
     'name' => 'Johnathan Doe', // Update name if email already exists
 ];
 
-$base->upsert('users', $data, 'email'); // 'email' is the unique key
+$persistBase->upsert('users', $data, 'email'); // 'email' is the unique key
 ```
 
 ### Table and Column Management
