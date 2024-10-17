@@ -28,6 +28,7 @@ First, create a new instance of the `Base` class. You can choose the storage dri
 
 ```php
 use Joaojkuligowski\Mypersist\Base;
+use Joaojkuligowski\Mypersist\PDODriver;
 
 $persistBase = new Base(new PDODriver('sqlite:api.test.db'));
 ```
@@ -36,6 +37,7 @@ $persistBase = new Base(new PDODriver('sqlite:api.test.db'));
 
 ```php
 use Joaojkuligowski\Mypersist\Base;
+use Joaojkuligowski\Mypersist\JSONDriver;
 
 $persistBase = new Base(new JSONDriver('data.test.json'));
 ```
