@@ -1,0 +1,14 @@
+api.db
+/logs/
+*.log
+/cache/
+.env
+*.local.php
+/vendor/
+*.tmp
+*.temp
+/.idea/
+/.vscode/
+/*.sublime-workspace
+.DS_Store
+Thumbs.db

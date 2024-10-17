@@ -1,0 +1,36 @@
+{
+  "name": "joaojkuligowski/mypersist",
+  "description": "A very simple persistence layer for PHP Projects",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "orm",
+    "persistence",
+    "database",
+    "json"
+  ],
+  "homepage": "https://github.com/joaojkuligowski/mypersist",
+  "support": {
+    "issues": "https://github.com/joaojkuligowski/mypersist/issues",
+    "source": "https://github.com/joaojkuligowski/mypersist/tree/v1.0.0"
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Joaojkuligowski\\Mypersist\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Joao",
+      "email": "joaojkuligowski@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require-dev": {
+    "phpunit/phpunit": "^11.4"
+  }
+}
