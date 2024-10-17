@@ -12,20 +12,10 @@ MyPersist is a lightweight micro ORM (Object-Relational Mapping) for PHP that su
 
 ## Installation
 
-You can install MyPersist via Composer. First, add the repository to your `composer.json`:
-
-```json
-{
-  "require": {
-    "joaojkuligowski/mypersist": "^1.0"
-  }
-}
-```
-
-Then run:
+You can install MyPersist via Composer.
 
 ```bash
-composer update
+composer require joaojkuligowski/mypersist
 ```
 
 ## Usage
